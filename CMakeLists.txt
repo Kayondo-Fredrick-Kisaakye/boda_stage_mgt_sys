@@ -12,8 +12,9 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(httplib)
 
-find_package(libpqxx REQUIRED)
 find_package(Threads REQUIRED)
+find_library(PQXX_LIBRARY NAMES pqxx REQUIRED)
+find_library(PQ_LIBRARY NAMES pq REQUIRED)
 
 add_executable(boda_stage
   src/main.cpp
@@ -23,4 +24,4 @@ add_executable(boda_stage
 )
 
 target_include_directories(boda_stage PRIVATE src)
-target_link_libraries(boda_stage PRIVATE httplib::httplib libpqxx::pqxx Threads::Threads)
+target_link_libraries(boda_stage PRIVATE httplib::httplib ${PQXX_LIBRARY} ${PQ_LIBRARY} Threads::Threads)
