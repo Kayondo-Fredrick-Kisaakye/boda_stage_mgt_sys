@@ -1,4 +1,3 @@
--- Active: 1793781295101@@127.0.0.1@5432@boda_stage_mgt_sys
 CREATE TABLE IF NOT EXISTS drivers (
     id BIGSERIAL PRIMARY KEY,
     stage_name VARCHAR(120) NOT NULL,
